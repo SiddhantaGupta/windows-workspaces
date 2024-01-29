@@ -53,9 +53,6 @@ setupWorkspace(10)
 !h::switchDesktopToLeft()
 !p::switchDesktopToLastOpened()
 
-!^c::createVirtualDesktop()
-!^d::deleteVirtualDesktop()
-
 !+1::MoveCurrentWindowToDesktop(1)
 !+2::MoveCurrentWindowToDesktop(2)
 !+3::MoveCurrentWindowToDesktop(3)
@@ -80,6 +77,13 @@ setupWorkspace(10)
 
 !+l::MoveCurrentWindowToRightDesktop()
 !+h::MoveCurrentWindowToLeftDesktop()
+
+; !^c::createVirtualDesktop()
+; !^d::deleteVirtualDesktop()
+!q::!F4
+!d::Send ^{Esc}
+!f::minMaxActiveWindow()
+!+m::swapAll()
 
 ; For keyboards with AltGr key
 <^>!1::switchDesktopByNumber(1)
@@ -108,9 +112,6 @@ setupWorkspace(10)
 <^>!h::switchDesktopToLeft()
 <^>!p::switchDesktopToLastOpened()
 
-<^>!^c::createVirtualDesktop()
-<^>!^d::deleteVirtualDesktop()
-
 <^>!+1::MoveCurrentWindowToDesktop(1)
 <^>!+2::MoveCurrentWindowToDesktop(2)
 <^>!+3::MoveCurrentWindowToDesktop(3)
@@ -135,6 +136,13 @@ setupWorkspace(10)
 
 <^>!+l::MoveCurrentWindowToRightDesktop()
 <^>!+h::MoveCurrentWindowToLeftDesktop()
+
+; <^>!^c::createVirtualDesktop()
+; <^>!^d::deleteVirtualDesktop()
+<^>!q::Send !{F4}
+<^>!d::Send ^{Esc}
+<^>!f::minMaxActiveWindow()
+<^>!+m::swapAll()
 
 ; === INSTRUCTIONS ===
 ; Below is the alternate key configuration. Delete symbol ; in the beginning of the line to enable.
@@ -167,9 +175,6 @@ setupWorkspace(10)
 ; #h::switchDesktopToLeft()
 ; #p::switchDesktopToLastOpened()
 
-; #^c::createVirtualDesktop()
-; #^d::deleteVirtualDesktop()
-
 ; #+1::MoveCurrentWindowToDesktop(1)
 ; #+2::MoveCurrentWindowToDesktop(2)
 ; #+3::MoveCurrentWindowToDesktop(3)
@@ -194,3 +199,10 @@ setupWorkspace(10)
 
 ; #+l::MoveCurrentWindowToRightDesktop()
 ; #+h::MoveCurrentWindowToLeftDesktop()
+
+; #^c::createVirtualDesktop()
+; #^d::deleteVirtualDesktop()
+; #q::!F4
+; #d::Send ^{Esc}
+; #f::minMaxActiveWindow()
+; #+m::swapAll()

@@ -1,6 +1,6 @@
 # windows-workspaces
 
-An AutoHotkey script for Windows that lets a user switch between virtual desktops with similar keybinds as i3wm. It also provides other features, such as auto creating n number of workspaces on startup (default: 10, like in i3wm), customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
+An AutoHotkey script for Windows that lets a user switch between virtual desktops with similar keybinds as i3wm. It also provides other features, such as auto creating n number of workspaces on startup (default: 10, like in i3wm), swapping windows between monitors (dual monitor only), customizing the key combinations etc. (see Hotkeys section below).
 
 ## Hotkeys
 
@@ -8,12 +8,17 @@ Action | Keys
 --- | :-:
 **Switch** to virtual desktop **1, 2, etc.**<br>*(you can also use the Numpad)*|<kbd>Alt</kbd> + <kbd>1</kbd><br><kbd>Alt</kbd> + <kbd>2</kbd><br>...<br><kbd>Alt</kbd> + <kbd>0</kbd>
 **Switch back** to the last desktop used|<kbd>Alt</kbd> + <kbd>p</kbd>
-**Switch** to the virtual desktop on the **left**<br>*(auto-cycles from the first to the last desktop)*|<kbd>Alt</kbd> + <kbd>l</kbd>
-**Switch** to the virtual desktop on the **right**<br>*(auto-cycles from the last to the first desktop)*|<kbd>Alt</kbd> + <kbd>h</kbd>
+**Swap** windows between two monitors|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>m</kbd>
+**Switch** to the virtual desktop on the **left**<br>*(auto-cycles from the first to the last desktop)*|<kbd>Alt</kbd> + <kbd>h</kbd>
+**Switch** to the virtual desktop on the **right**<br>*(auto-cycles from the last to the first desktop)*|<kbd>Alt</kbd> + <kbd>l</kbd>
 **Create** a new virtual desktop|<kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>c</kbd>
 **Delete** the current virtual desktop|<kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>d</kbd>
-**Move** the current window to another desktop, then switch to it<br>|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>1</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>2</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd>
+**Move** the current window to another desktop<br>|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>1</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>2</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd>
 **Move** the current window to the previous or the next desktop, then switch to it|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>h</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>l</kbd>
+Toggle **Maximize/Non-Maximize** focused window|<kbd>Alt</kbd> + <kbd>f</kbd>
+**Quit** focused window|<kbd>Alt</kbd> + <kbd>q</kbd>
+**Open** search|<kbd>Alt</kbd> + <kbd>d</kbd>
+
 
 Note, <kbd>Alt</kbd> continues to function normally even when it is used as a modifier. [But you can make the button do more useful things such as open overview, or disable it altogether](https://github.com/pmb6tz/windows-desktop-switcher/issues/67).
 
