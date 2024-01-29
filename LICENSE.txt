@@ -1,3 +1,4 @@
+Copyright (c) 2024 Siddhanta Gupta
 Copyright (c) 2019 Paul Bozzay
 Copyright (c) 2018 Elijas Dapšauskas
 Copyright (c) 2016 Sergio Dias

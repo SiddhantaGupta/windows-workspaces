@@ -1,32 +1,33 @@
-# windows-desktop-switcher
-An AutoHotkey script for Windows that lets a user switch virtual desktops by pressing <kbd>CapsLock</kbd> and a number row key at the sime time (e.g. <kbd>CapsLock</kbd> + <kbd>2</kbd> to switch to Desktop 2). It also provides other features, such as customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
+# windows-workspaces
+
+An AutoHotkey script for Windows that lets a user switch between virtual desktops with similar keybinds as i3wm. It also provides other features, such as auto creating n number of workspaces on startup (default: 10, like in i3wm), customizing the key combinations, creation/deletion of desktops by hotkey, etc. (see Hotkeys section below).
 
 ## Hotkeys
 
 Action | Keys 
 --- | :-:
-**Switch** to virtual desktop **1, 2, etc.**<br>*(you can also use the Numpad)*|<kbd>CapsLock</kbd> + <kbd>1</kbd><br><kbd>CapsLock</kbd> + <kbd>2</kbd><br>...<br><kbd>CapsLock</kbd> + <kbd>9</kbd>
-**Switch back** to the last desktop used|<kbd>CapsLock</kbd> + <kbd>Tab</kbd>
-**Switch** to the virtual desktop on the **left**<br>*(auto-cycles from the first to the last desktop)*|<kbd>CapsLock</kbd> + <kbd>A</kbd><br><kbd>CapsLock</kbd> + <kbd>P</kbd>
-**Switch** to the virtual desktop on the **right**<br>*(auto-cycles from the last to the first desktop)*|<kbd>CapsLock</kbd> + <kbd>S</kbd><br><kbd>CapsLock</kbd> + <kbd>N</kbd>
-**Create** a new virtual desktop|**<kbd>CapsLock</kbd> + <kbd>C</kbd>**
-**Delete** the current virtual desktop|<kbd>CapsLock</kbd> + <kbd>D</kbd>
-**Move** the current window to another desktop, then switch to it<br>*Keys <kbd>Q</kbd>, <kbd>W</kbd>, etc. correspond to **1st, 2nd, etc.** desktops*|<kbd>CapsLock</kbd> + <kbd>Q</kbd><br><kbd>CapsLock</kbd> + <kbd>W</kbd><br>...<br><kbd>CapsLock</kbd> + <kbd>O</kbd>
-**Move** the current window to the previous or the next desktop, then switch to it|<kbd>CapsLock</kbd> + <kbd>←</kbd><br><kbd>CapsLock</kbd> + <kbd>→</kbd>
+**Switch** to virtual desktop **1, 2, etc.**<br>*(you can also use the Numpad)*|<kbd>Alt</kbd> + <kbd>1</kbd><br><kbd>Alt</kbd> + <kbd>2</kbd><br>...<br><kbd>Alt</kbd> + <kbd>0</kbd>
+**Switch back** to the last desktop used|<kbd>Alt</kbd> + <kbd>p</kbd>
+**Switch** to the virtual desktop on the **left**<br>*(auto-cycles from the first to the last desktop)*|<kbd>Alt</kbd> + <kbd>l</kbd>
+**Switch** to the virtual desktop on the **right**<br>*(auto-cycles from the last to the first desktop)*|<kbd>Alt</kbd> + <kbd>h</kbd>
+**Create** a new virtual desktop|<kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>c</kbd>
+**Delete** the current virtual desktop|<kbd>Alt</kbd> + <kbd>Ctrl</kbd> + <kbd>d</kbd>
+**Move** the current window to another desktop, then switch to it<br>|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>1</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>2</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd>
+**Move** the current window to the previous or the next desktop, then switch to it|<kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>h</kbd><br><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>l</kbd>
 
-Note, <kbd>CapsLock</kbd> continues to function normally even when it is used as a modifier. [But you can make the button do more useful things such as open overview, or disable it altogether](https://github.com/pmb6tz/windows-desktop-switcher/issues/67).
+Note, <kbd>Alt</kbd> continues to function normally even when it is used as a modifier. [But you can make the button do more useful things such as open overview, or disable it altogether](https://github.com/pmb6tz/windows-desktop-switcher/issues/67).
 
-If you'd like, you can [enable the alternate configuration](https://github.com/pmb6tz/windows-desktop-switcher/issues/44), to use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> as hotkey combination keys instead of <kbd>CapsLock</kbd> (e.g. use <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>1</kbd> to switch to the Desktop 1, just as you would use <kbd>CapsLock</kbd> + <kbd>1</kbd>).
+If you'd like, you can enable the alternate configuration, to use <kbd>Super (Win key)</kbd> as modifier key instead of <kbd>Alt</kbd> (e.g. use <kbd>Super</kbd> + <kbd>1</kbd> to switch to the Desktop 1, just as you would use <kbd>Alt</kbd> + <kbd>1</kbd>).
 
 Additional hotkeys, such as [pinning a window or app on all workspaces](https://github.com/pmb6tz/windows-desktop-switcher/issues/55), can be added as well.
 
 You can also customize the hotkeys and actions as described in the section below.
 
 ## Overview
-This script creates more convenient hotkeys for switching virtual desktops in Windows 10. I built this to better mirror the mapping I use on linux (with dwm), and it's always annoyed me that Windows does not have better hotkey support for this feature (for instance, there's no way to go directly to a desktop by number).
+This script creates more convenient hotkeys for switching virtual desktops in Windows 11. I forked this to better mirror the mapping I use on linux (with i3wm), and it's always annoyed me that Windows does not have better hotkey support for this feature (for instance, there's no way to go directly to a desktop by number).
 
 ## Running
-[Install AutoHotkey](https://autohotkey.com/download/) v1.1 or later, then run the `desktop_switcher.ahk` script (open with AutoHotkey if prompted). You can disable the switching animation by opening "Adjust the appearance and performance of Windows" and then unselecting the checkmark "Animate windows when minimizing and maximizing".
+[Install AutoHotkey](https://autohotkey.com/download/) v1.1 or later, then run the `desktop_switcher.ahk` script (open with AutoHotkey if prompted). You can disable the switching animation in `Settings -> Accessibility -> Visual Effects` and toggling off `Animation effects`.
 
 ### Notes about Windows 1809/1903≤ Updates
 This project relies partly on [VirtualDesktopAccessor.dll](https://github.com/Ciantic/VirtualDesktopAccessor) (for moving windows to other desktops). This binary is included in this repository for convenience, and was recently updated to work with the 1809/1903≤ updates. 
@@ -36,15 +37,16 @@ This may cause instability for users running older versions of Windows. If this 
 If a future Windows Update breaks the DLL again and updating your files from this repository doesn't work, you could try [building the DLL yourself](https://github.com/Ciantic/VirtualDesktopAccessor) (given that it was since updated by its' creators).
 
 ## Customizing Hotkeys
-To change the key mappings, modify the `user_config.ahk` script and then run `desktop_switcher.ahk` (program will restart if it's already running). Note, `!` corresponds to <kbd>Alt</kbd>, `+` is <kbd>Shift</kbd>, `#` is <kbd>Win</kbd>, and `^` is <kbd>Ctrl</kbd>. A more detailed description of hotkeys can be found [here](https://autohotkey.com/docs/Hotkeys.htm). The syntax of the config file is `HOTKEY::ACTION`. Here are some examples of the customization options. 
+To change the key mappings, modify the `user_config.ahk` script and then run `desktop_switcher.ahk` (program will restart if it's already running). Note, `!` corresponds to <kbd>Alt</kbd>, `<^>!` is <kbd>AltGr</kbd>, `+` is <kbd>Shift</kbd>, `#` is <kbd>Win</kbd>, and `^` is <kbd>Ctrl</kbd>. A more detailed description of hotkeys can be found [here](https://autohotkey.com/docs/Hotkeys.htm). The syntax of the config file is `HOTKEY::ACTION`. Here are some examples of the customization options. 
 
 Single line of code example | Meaning
 --- | ---
-`!n::switchDesktopToRight()`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Hotkey:** <kbd>Alt</kbd> + <kbd>N</kbd><br>**Action:** Switch to the desktop on the right
+`!l::switchDesktopToRight()`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | **Hotkey:** <kbd>Alt</kbd> + <kbd>N</kbd><br>**Action:** Switch to the desktop on the right
 `#!space::switchDesktopToRight()` | **Hotkey:** <kbd>Win</kbd> + <kbd>Alt</kbd> + <kbd>Space</kbd><br>**Action:** Switch to the desktop on the right
 `CapsLock & n::switchDesktopToRight()` | **Hotkey:** <kbd>Capslock</kbd> + <kbd>N</kbd><br>**Action:** Switch to the desktop on the right<br>*(& is necessary when using a non-modifier key such as Capslock)*
-`!n::switchDesktopToRight()` | **Hotkey:** <kbd>Alt</kbd> + <kbd>N</kbd><br>**Action:** Switch to the desktop on the right
 `^space::send, #{tab} ` | **Hotkey:** <kbd>Ctrl</kbd> + <kbd>Space</kbd><br>**Action:** Open Desktop Manager by sending <kbd>Win</kbd> + <kbd>Tab</kbd>
+
+You can change the number of virtual desktops created on boot by changing the number passed in `setupWorkspace(10)` in `user_config.ahk`
 
 A more detailed description of hotkeys can be found here: [AutoHotkey docs](https://autohotkey.com/docs/Hotkeys.htm).<br>
 You can find the explanation for the Desktop Manager hotkey [here](https://github.com/pmb6tz/windows-desktop-switcher/issues/41).<br>
@@ -84,16 +86,12 @@ The task is now registered and will run on the next logon, and can be viewed or 
 
 Solution is described in [#66](https://github.com/pmb6tz/windows-desktop-switcher/issues/66#issuecomment-741793147).
 
-#### How to create a specific number of desktops after the application is started?
-
-Solution is described in [#69](https://github.com/pmb6tz/windows-desktop-switcher/issues/69#issuecomment-786976955).
-
 #### How to see at a glance, which of the desktops am I currently on (i.e. show a number of the current desktop as a tray bar icon)?
 
 Solution is described in [#50](https://github.com/pmb6tz/windows-desktop-switcher/issues/50#issuecomment-935875918).
 
 ## Credits
-
+- This is a fork of [pmb6tz/windows-desktop-switcher](https://github.com/pmb6tz/windows-desktop-switcher.git)
 - Thanks to [Ciantic/VirtualDesktopAccessor](https://github.com/Ciantic/VirtualDesktopAccessor) (DLL) and [sdias/win-10-virtual-desktop-enhancer](https://github.com/sdias/win-10-virtual-desktop-enhancer) (DLL usage samples), our code can now move windows between desktops.
 
 ## Other

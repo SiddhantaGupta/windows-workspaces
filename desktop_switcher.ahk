@@ -1,13 +1,13 @@
 #Requires AutoHotkey v1.1.33+
 #SingleInstance Force ; The script will Reload if launched while already running
-#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases
+#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases
 #KeyHistory 0 ; Ensures user privacy when debugging is not needed
-SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory
-SendMode Input  ; Recommended for new scripts due to its superior speed and reliability
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability
 
 ; Globals
-DesktopCount := 2        ; Windows starts with 2 desktops at boot
-CurrentDesktop := 1      ; Desktop count is 1-indexed (Microsoft numbers them this way)
+DesktopCount := 2 ; Windows starts with 2 desktops at boot
+CurrentDesktop := 1 ; Desktop count is 1-indexed (Microsoft numbers them this way)
 LastOpenedDesktop := 1
 
 ; DLL
@@ -42,7 +42,7 @@ mapDesktopsFromRegistry()
         if ErrorLevel {
             RegRead, CurrentDesktopId, HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SessionInfo\%SessionId%\VirtualDesktops, CurrentVirtualDesktop
         }
-        
+
         if (CurrentDesktopId) {
             IdLength := StrLen(CurrentDesktopId)
         }
@@ -75,6 +75,29 @@ mapDesktopsFromRegistry()
         }
         i++
     }
+}
+
+;
+; Create total of workspaceCount number of desktops
+; This takes the existing desktops into account
+;
+setupWorkspace(workspaceCount)
+{
+    global DesktopCount
+    desktopCountToCreate := workspaceCount - DesktopCount
+    if (desktopCountToCreate < 1) {
+        return
+    }
+    OutputDebug, Creating %workspaceCount% workspaces
+    while (desktopCountToCreate > 0) {
+        createVirtualDesktop()
+        desktopCountToCreate--
+    }
+    ; 300 is the minimum value that seems to consistently works on a modern pc when going from 1 to 10 virtual desktops
+    ; but 500 has been set to make sure it always switches to the first v-desktop.
+    Sleep, 500
+    OutputDebug, Switching back to first workspace
+    switchDesktopByNumber(1)
 }
 
 ;
